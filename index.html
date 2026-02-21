@@ -69,8 +69,72 @@
         </div>
     </section>
 
-    <!-- SLIDER FÚTBOL Y PERFUMES -->
+    <!-- SLIDER PRINCIPAL: FÚTBOL, PERFUMES Y REMERAS -->
     <section class="football-section">
+        <div class="football-content">
+            
+            <!-- Slide 1: Fútbol -->
+            <div class="slide-container active">
+                <div class="ipad-frame">
+                    <div class="ipad-screen">
+                        <img src="gol1.gif" alt="Goles de fútbol">
+                    </div>
+                </div>
+                <div class="football-text">
+                    <h2 class="fade-in-text">El próximo golazo empieza en tus pies.</h2>
+                    <p class="bounce-text">Elegí tus championes</p>
+                </div>
+                <div class="football-products">
+                    <div class="football-product"><img src="nike1.png" alt="Nike 1"></div>
+                    <div class="football-product"><img src="nike2.png" alt="Nike 2"></div>
+                    <div class="football-product"><img src="nike3.png" alt="Nike 3"></div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Perfumes -->
+            <div class="slide-container">
+                <div class="ipad-frame">
+                    <div class="ipad-screen">
+                        <img src="perfume.png" alt="Perfume">
+                    </div>
+                </div>
+                <div class="football-text">
+                    <h2 class="fade-in-text">Fragancia que marca diferencia.</h2>
+                    <p class="bounce-text">Elegí tu aroma</p>
+                </div>
+                <div class="football-products">
+                    <div class="football-product"><img src="perfume1.png" alt="Perfume 1"></div>
+                    <div class="football-product"><img src="perfume2.png" alt="Perfume 2"></div>
+                    <div class="football-product"><img src="perfume3.png" alt="Perfume 3"></div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Remeras de Fútbol -->
+            <div class="slide-container">
+                <div class="ipad-frame">
+                    <div class="ipad-screen">
+                        <img src="4.jpeg" alt="Remera Fútbol">
+                    </div>
+                </div>
+                <div class="football-text">
+                    <h2 class="fade-in-text">Remeras de Fútbol</h2>
+                    <p class="bounce-text">Tallas 4 a 14</p>
+                </div>
+                <div class="football-products">
+                    <div class="football-product"><img src="4.jpeg" alt="Talla 4"></div>
+                    <div class="football-product"><img src="8.jpeg" alt="Talla 8"></div>
+                    <div class="football-product"><img src="14.jpeg" alt="Talla 14"></div>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="slide-nav">
+                <button class="slide-dot active" onclick="goToSlide(0)"></button>
+                <button class="slide-dot" onclick="goToSlide(1)"></button>
+                <button class="slide-dot" onclick="goToSlide(2)"></button>
+            </div>
+        </div>
+    </section>
         <div class="football-content">
             
             <!-- Slide 1: Fútbol -->
@@ -600,49 +664,34 @@
             });
         });
 
-        // SLIDERS
-        let footballIndex = 0;
-        let perfumeIndex = 0;
+        // Slider functionality - Fútbol, Perfumes y Remeras
+        let currentSlide = 0;
+        const totalSlides = 3;
 
-        function changeSlide(type, direction) {
-            const slider = document.getElementById(type + 'Slider');
-            const slides = slider.querySelectorAll('.slider-slide');
-            const dots = slider.querySelectorAll('.slider-dots span');
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.slide-container');
+            const dots = document.querySelectorAll('.slide-dot');
             
-            let currentIndex = type === 'football' ? footballIndex : perfumeIndex;
-            
-            slides[currentIndex].classList.remove('active');
-            dots[currentIndex].classList.remove('active');
-            
-            currentIndex = (currentIndex + direction + slides.length) % slides.length;
-            
-            slides[currentIndex].classList.add('active');
-            dots[currentIndex].classList.add('active');
-            
-            if (type === 'football') footballIndex = currentIndex;
-            else perfumeIndex = currentIndex;
-        }
-
-        function goToSlide(type, index) {
-            const slider = document.getElementById(type + 'Slider');
-            const slides = slider.querySelectorAll('.slider-slide');
-            const dots = slider.querySelectorAll('.slider-dots span');
-            
-            let currentIndex = type === 'football' ? footballIndex : perfumeIndex;
-            
-            slides[currentIndex].classList.remove('active');
-            dots[currentIndex].classList.remove('active');
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
             
             slides[index].classList.add('active');
             dots[index].classList.add('active');
-            
-            if (type === 'football') footballIndex = index;
-            else perfumeIndex = index;
+            currentSlide = index;
         }
 
-        // Auto slide
-        setInterval(() => changeSlide('football', 1), 5000);
-        setInterval(() => changeSlide('perfume', 1), 6000);
+        function changeSlide(direction) {
+            const newIndex = (currentSlide + direction + totalSlides) % totalSlides;
+            goToSlide(newIndex);
+        }
+
+        // Auto slide cada 20 segundos
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }, 20000);
 
         // CARGAR PRODUCTOS AL INICIAR
         loadProducts();
