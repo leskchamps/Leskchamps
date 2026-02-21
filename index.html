@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeskChamps - Tienda Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <navbar>
+        <div class="navbar-container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i> LeskChamps
+            </div>
+            <div class="nav-links">
+                <a href="#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </navbar>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Bienvenido a LeskChamps</h1>
+            <p class="fade-in-delay">Calzado, perfumes y remeras con estilo</p>
+            <button class="btn-primary glow-btn fade-in-delay-2" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
+                Descubrí tu look
+            </button>
+        </div>
+        <div class="hero-glow"></div>
+    </section>
+
+    <!-- BLOQUE DE ESTILO - PROPUESTA DE VALOR -->
+    <section class="style-block">
+        <div class="style-content">
+            <h2 class="style-title">Autenticidad, calidad y estilo en cada detalle</h2>
+            <div class="style-text">
+                <p>Calzado, perfumes exclusivos y remeras de fútbol</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits-section">
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">✓</div>
+                <h3>Productos de Calidad</h3>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">★</div>
+                <h3>Atención personalizada</h3>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">♦</div>
+                <h3>Tu estilo, tu elección</h3>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🔒</div>
+                <h3>Compra fácil y segura</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDER FÚTBOL Y PERFUMES -->
+    <section class="football-section">
+        <div class="football-content">
+            
+            <!-- Slide 1: Fútbol -->
+            <div class="slide-container active">
+                <div class="ipad-frame">
+                    <div class="ipad-screen">
+                        <img src="gol1.gif" alt="Goles de fútbol">
+                    </div>
+                </div>
+                <div class="football-text">
+                    <h2 class="fade-in-text">El próximo golazo empieza en tus pies.</h2>
+                    <p class="bounce-text">Elegí tus championes</p>
+                </div>
+                <div class="football-products">
+                    <div class="football-product"><img src="nike1.png" alt="Nike 1"></div>
+                    <div class="football-product"><img src="nike2.png" alt="Nike 2"></div>
+                    <div class="football-product"><img src="nike3.png" alt="Nike 3"></div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Perfumes -->
+            <div class="slide-container">
+                <div class="ipad-frame">
+                    <div class="ipad-screen">
+                        <img src="perfume.png" alt="Perfume">
+                    </div>
+                </div>
+                <div class="football-text">
+                    <h2 class="fade-in-text">Fragancia que marca diferencia.</h2>
+                    <p class="bounce-text">Elegí tu aroma</p>
+                </div>
+                <div class="football-products">
+                    <div class="football-product"><img src="perfume1.png" alt="Perfume 1"></div>
+                    <div class="football-product"><img src="perfume2.png" alt="Perfume 2"></div>
+                    <div class="football-product"><img src="perfume3.png" alt="Perfume 3"></div>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="slide-nav">
+                <button class="slide-dot active" onclick="goToSlide(0)"></button>
+                <button class="slide-dot" onclick="goToSlide(1)"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <div class="categories-nav">
+        <button class="category-btn active" data-filter="todos">Todos</button>
+        <button class="category-btn" data-filter="calzado">Calzado</button>
+        <button class="category-btn" data-filter="perfumes">Perfumes</button>
+        <button class="category-btn" data-filter="futbol">Remeras Fútbol</button>
+        <button class="category-btn" data-filter="remeras">Remeras</button>
+    </div>
+
+    <!-- PRODUCTOS -->
+    <section class="section" id="productos">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- CARRITO MODAL -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Carrito de Compras</h2>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE PRODUCTO AMPLIADO -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-image-container" id="modalImageContainer"></div>
+            <div class="modal-dots" id="modalDots"></div>
+            <div class="modal-info">
+                <div class="modal-category" id="modalCategory"></div>
+                <h2 class="modal-name" id="modalName"></h2>
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-price" id="modalPrice"></div>
+                <div class="modal-action-buttons">
+                    <button class="modal-add-btn" id="modalAddBtn">
+                        <i class="fas fa-plus"></i> Agregar al Carrito
+                    </button>
+                    <button class="modal-close-btn" id="modalCloseBtn">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre LeskChamps</h3>
+                <p>Somos una tienda dedicada a ofrecer productos de calidad en calzado, perfumes y moda deportiva.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +598 92 037 792</p>
+                <p><i class="fas fa-envelope"></i> leskchamps@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Uruguay</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LeskChamps. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // PRODUCTOS CON SLIDERS
+        const products = [
+            // CHAMPIONES - 6000 cada uno
+            { 
+                id: 1, 
+                name: 'Champión Puma', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Calzado premium de alto rendimiento',
+                images: ['puma.png', 'puma1.png', 'puma2.png', 'puma3.png', 'puma4.png']
+            },
+            { 
+                id: 2, 
+                name: 'Champión Adidas', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Zapatilla deportiva de diseño innovador',
+                images: ['adidas.png', 'adidas1.png', 'adidas2.png', 'adidas3.png', 'adidas4.png']
+            },
+            { 
+                id: 3, 
+                name: 'Champión Nike Air', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Calzado con tecnología de punta',
+                images: ['nikeair1.png', 'nikeair2.png', 'nikeair3.png', 'nikeair4.png', 'nikeair5.png']
+            },
+            { 
+                id: 4, 
+                name: 'Nike Phantom', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Diseño premium y confortable',
+                images: ['nikephanton.png', 'nikephanton1.png', 'nikephanton2.png', 'nikephaton3.png', 'nikephaton4.png']
+            },
+            { 
+                id: 5, 
+                name: 'Nike Zoom', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Tecnología de amortiguación avanzada',
+                images: ['nikezoom.png', 'nikezoom1.png', 'nikezoom2.png', 'nikezoom3.png']
+            },
+            { 
+                id: 6, 
+                name: 'Phantom Blancas', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Elegancia en blanco puro',
+                images: ['phantonblancas.png', 'phantonblancas1.png', 'phantonblancas2.png', 'phantonblancas3.png', 'phantonblancas4.png']
+            },
+            { 
+                id: 7, 
+                name: 'Nike Celeste', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Tonalidad celeste fresca',
+                images: ['nikeceleste.png', 'nikeceleste1.png', 'nikeceleste2.png', 'nikeceleste3.png', 'nikeceleste4.png']
+            },
+            { 
+                id: 8, 
+                name: 'Nike Crema', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Tono crema sofisticado',
+                images: ['nikecrema.png', 'nikecrema1.png', 'nikecrema2.png', 'nikecrema3.png', 'nikecrema4.png']
+            },
+            { 
+                id: 9, 
+                name: 'Nike Rosa', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Color rosa vibrante',
+                images: ['nikerosa.png', 'nikerosa1.png', 'nikerosa2.png', 'nikerosa3.png', 'nikerosa4.png']
+            },
+            { 
+                id: 10, 
+                name: 'Puma Negro', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Clásico negro elegante',
+                images: ['pumanegro1.png', 'pumanegro2.png', 'pumanegro3.png', 'pumanegro4.png', 'pumanegro5.png']
+            },
+            { 
+                id: 11, 
+                name: 'Nike 1', 
+                category: 'calzado', 
+                price: 6000, 
+                description: 'Modelo deportivo premium',
+                images: ['nike1.png', 'nike2.png', 'nike3.png', 'nike4.png', 'nike5.png']
+            },
+
+            // PERFUMES - Productos individuales - 1500 cada uno
+            { id: 12, name: 'Perfume 1', category: 'perfumes', price: 1500, description: 'Aroma fresco y sofisticado', images: ['perfume.png'] },
+            { id: 45, name: 'Perfume 2', category: 'perfumes', price: 1500, description: 'Fragancia elegante', images: ['perfume1.png'] },
+            { id: 46, name: 'Perfume 3', category: 'perfumes', price: 1500, description: 'Aroma duradero', images: ['perfume2.png'] },
+            { id: 47, name: 'Perfume 4', category: 'perfumes', price: 1500, description: 'Esencia única', images: ['perfume3.png'] },
+            { id: 48, name: 'Perfume 5', category: 'perfumes', price: 1500, description: 'Fragancia premium', images: ['perfume4.png'] },
+            { id: 49, name: 'Perfume 6', category: 'perfumes', price: 1500, description: 'Aroma exclusivo', images: ['perfume5.png'] },
+            { id: 50, name: 'Perfume 7', category: 'perfumes', price: 1500, description: 'Sensación única', images: ['perfume6.png'] },
+
+            // REMERAS DE FÚTBOL - Productos individuales - 2000 cada una
+            { id: 51, name: 'Remera Fútbol Talla 4', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['4.jpeg'] },
+            { id: 52, name: 'Remera Fútbol Talla 5', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['5.jpeg'] },
+            { id: 53, name: 'Remera Fútbol Talla 6', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['6.jpeg'] },
+            { id: 54, name: 'Remera Fútbol Talla 7', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['7.jpeg'] },
+            { id: 55, name: 'Remera Fútbol Talla 8', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['8.jpeg'] },
+            { id: 56, name: 'Remera Fútbol Talla 10', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['10.jpeg'] },
+            { id: 57, name: 'Remera Fútbol Talla 11', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['11.jpeg'] },
+            { id: 58, name: 'Remera Fútbol Talla 12', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['12.jpeg'] },
+            { id: 59, name: 'Remera Fútbol Talla 13', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['13.jpeg'] },
+            { id: 60, name: 'Remera Fútbol Talla 14', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['14.jpeg'] },
+
+            // REMERAS - Individuales
+            { id: 14, name: 'Remera Premium 1', category: 'remeras', price: 850, description: 'Diseño exclusivo', images: ['remera.png'] },
+            { id: 15, name: 'Remera Premium 2', category: 'remeras', price: 850, description: 'Estilo moderno', images: ['remera2.png'] },
+            { id: 16, name: 'Remera Premium 3', category: 'remeras', price: 850, description: 'Comfort total', images: ['remera3.png'] },
+            { id: 17, name: 'Remera Premium 4', category: 'remeras', price: 900, description: 'Calidad superior', images: ['remera4.png'] },
+            { id: 18, name: 'Remera Premium 5', category: 'remeras', price: 900, description: 'Diseño atemporal', images: ['remera5.png'] },
+            { id: 19, name: 'Remera Premium 6', category: 'remeras', price: 900, description: 'Elegancia garantizada', images: ['remera6.png'] },
+        ];
+
+        let cart = [];
+        let currentFilter = 'todos';
+
+        // DOM Elements
+        const cartIcon = document.getElementById('cartIcon');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const productsGrid = document.getElementById('productsGrid');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+
+        // CARGAR PRODUCTOS
+        function loadProducts(filter = 'todos') {
+            productsGrid.innerHTML = '';
+            const filtered = filter === 'todos' ? products : products.filter(p => p.category === filter);
+            
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card slide-in-element';
+                
+                let imagesHTML = '';
+                product.images.forEach((img, index) => {
+                    imagesHTML += `<img src="${img}" alt="${product.name}" class="product-image ${index === 0 ? 'active' : ''}">`;
+                });
+
+                let navDotsHTML = '';
+                product.images.forEach((_, index) => {
+                    navDotsHTML += `<span class="slider-dot ${index === 0 ? 'active' : ''}" onclick="changeImage(${product.id}, ${index})"></span>`;
+                });
+
+                let sliderBtnsHTML = product.images.length > 1 ? `
+                    <button class="slider-btn prev" onclick="prevImage(${product.id})">❮</button>
+                    <button class="slider-btn next" onclick="nextImage(${product.id})">❯</button>
+                ` : '';
+
+                card.innerHTML = `
+                    <div class="product-slider" id="slider-${product.id}" onclick="openProductModal(${product.id})">
+                        ${imagesHTML}
+                        ${sliderBtnsHTML}
+                        <div class="slider-nav">
+                            ${navDotsHTML}
+                        </div>
+                        <div class="product-overlay">
+                            <span class="product-overlay-price">${product.price.toFixed(0)}</span>
+                            <span class="product-overlay-category">${product.category}</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">${product.price.toFixed(0)}</div>
+                        <button class="btn-add-cart" onclick="addToCart(${product.id})">
+                            <i class="fas fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                `;
+                productsGrid.appendChild(card);
+            });
+            
+            // Activar animaciones de scroll
+            setTimeout(() => {
+                document.querySelectorAll('.slide-in-element').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 100);
+        }
+
+        // CONTROLAR SLIDER
+        function nextImage(productId) {
+            changeToImage(productId, 1);
+        }
+
+        function prevImage(productId) {
+            changeToImage(productId, -1);
+        }
+
+        function changeToImage(productId, direction) {
+            const product = products.find(p => p.id === productId);
+            const slider = document.getElementById(`slider-${productId}`);
+            const images = slider.querySelectorAll('.product-image');
+            const dots = slider.querySelectorAll('.slider-dot');
+            
+            let currentIndex = 0;
+            images.forEach((img, index) => {
+                if (img.classList.contains('active')) currentIndex = index;
+            });
+
+            const newIndex = (currentIndex + direction + images.length) % images.length;
+            
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            images[newIndex].classList.add('active');
+            dots[newIndex].classList.add('active');
+        }
+
+        function changeImage(productId, imageIndex) {
+            const slider = document.getElementById(`slider-${productId}`);
+            const images = slider.querySelectorAll('.product-image');
+            const dots = slider.querySelectorAll('.slider-dot');
+            
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            images[imageIndex].classList.add('active');
+            dots[imageIndex].classList.add('active');
+        }
+
+        // AGREGAR AL CARRITO
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.images[0],
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+            showCartNotification();
+        }
+
+        // ACTUALIZAR CARRITO
+        function updateCart() {
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            renderCart();
+            calculateTotal();
+        }
+
+        // RENDERIZAR CARRITO
+        function renderCart() {
+            cartItems.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="empty-cart"><i class="fas fa-shopping-bag"></i><p>Tu carrito está vacío</p></div>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">${item.price.toFixed(0)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="qty-btn" onclick="decreaseQuantity(${item.id})">−</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" onclick="increaseQuantity(${item.id})">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" onclick="removeFromCart(${item.id})"><i class="fas fa-trash"></i></button>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+        }
+
+        // CALCULAR TOTAL
+        function calculateTotal() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = `$${total.toFixed(0)}`;
+        }
+
+        // AUMENTAR CANTIDAD
+        function increaseQuantity(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity++;
+                updateCart();
+            }
+        }
+
+        // DISMINUIR CANTIDAD
+        function decreaseQuantity(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item && item.quantity > 1) {
+                item.quantity--;
+                updateCart();
+            } else if (item && item.quantity === 1) {
+                removeFromCart(productId);
+            }
+        }
+
+        // ELIMINAR DEL CARRITO
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+        // NOTIFICACIÓN
+        function showCartNotification() {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--success);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                z-index: 10000;
+                animation: slideDown 0.3s ease-out;
+            `;
+            notification.innerHTML = '<i class="fas fa-check"></i> Producto agregado al carrito';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideUp 0.3s ease-out';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+
+        // ABRIR/CERRAR CARRITO
+        cartIcon.addEventListener('click', () => {
+            cartModal.classList.toggle('active');
+        });
+
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+        });
+
+        cartModal.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.classList.remove('active');
+            }
+        });
+
+        // CHECKOUT CON WHATSAPP
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+
+            let mensaje = '🛒 *Pedido LeskChamps*\n\n';
+            let total = 0;
+
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                mensaje += `📸 *${item.name}*\n`;
+                mensaje += `💵 Precio: ${item.price.toFixed(0)} | Cantidad: ${item.quantity}\n`;
+                mensaje += `🖼️ Imagen: ${item.image}\n`;
+                mensaje += `-------------------\n`;
+            });
+
+            mensaje += `\n💰 *TOTAL: ${total.toFixed(0)}*\n\n`;
+            mensaje += '¿Pueden confirmar disponibilidad?';
+
+            const numeroWhatsapp = '59892037792';
+            const urlWhatsapp = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensaje)}`;
+
+            window.open(urlWhatsapp, '_blank');
+        });
+
+        // FILTRAR POR CATEGORÍA
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                loadProducts(currentFilter);
+            });
+        });
+
+        // Slider functionality - Fútbol y Perfumes
+        let currentSlide = 0;
+        const totalSlides = 2;
+
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.slide-container');
+            const dots = document.querySelectorAll('.slide-dot');
+            
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function changeSlide(direction) {
+            const newIndex = (currentSlide + direction + totalSlides) % totalSlides;
+            goToSlide(newIndex);
+        }
+
+        // Auto slide cada 20 segundos
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }, 20000);
+
+        // CARGAR PRODUCTOS AL INICIAR
+        loadProducts();
+
+        // MODAL DE PRODUCTO AMPLIADO
+        const productModal = document.getElementById('productModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        const modalImageContainer = document.getElementById('modalImageContainer');
+        const modalDots = document.getElementById('modalDots');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalName = document.getElementById('modalName');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalAddBtn = document.getElementById('modalAddBtn');
+
+        let currentModalProduct = null;
+        let currentModalImageIndex = 0;
+
+        function openProductModal(productId) {
+            currentModalProduct = products.find(p => p.id === productId);
+            currentModalImageIndex = 0;
+
+            // Llenar información del modal
+            modalCategory.textContent = currentModalProduct.category;
+            modalName.textContent = currentModalProduct.name;
+            modalDescription.textContent = currentModalProduct.description;
+            modalPrice.textContent = `$${currentModalProduct.price.toFixed(0)}`;
+
+            // Crear imágenes
+            modalImageContainer.innerHTML = '';
+            currentModalProduct.images.forEach((img, index) => {
+                const imgElement = document.createElement('img');
+                imgElement.src = img;
+                imgElement.alt = currentModalProduct.name;
+                imgElement.className = `modal-image ${index === 0 ? 'active' : ''}`;
+                modalImageContainer.appendChild(imgElement);
+            });
+
+            // Agregar botones de navegación si hay múltiples imágenes
+            if (currentModalProduct.images.length > 1) {
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'modal-nav-btn prev';
+                prevBtn.innerHTML = '❮';
+                prevBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    prevModalImage();
+                };
+                modalImageContainer.appendChild(prevBtn);
+
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'modal-nav-btn next';
+                nextBtn.innerHTML = '❯';
+                nextBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    nextModalImage();
+                };
+                modalImageContainer.appendChild(nextBtn);
+            }
+
+            // Crear dots
+            modalDots.innerHTML = '';
+            currentModalProduct.images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = `modal-dot ${index === 0 ? 'active' : ''}`;
+                dot.onclick = () => changeModalImage(index);
+                modalDots.appendChild(dot);
+            });
+
+            // Actualizar botón de agregar
+            modalAddBtn.onclick = () => {
+                addToCart(currentModalProduct.id);
+                productModal.classList.remove('active');
+            };
+
+            // Mostrar modal
+            productModal.classList.add('active');
+        }
+
+        function prevModalImage() {
+            currentModalImageIndex = (currentModalImageIndex - 1 + currentModalProduct.images.length) % currentModalProduct.images.length;
+            changeModalImage(currentModalImageIndex);
+        }
+
+        function nextModalImage() {
+            currentModalImageIndex = (currentModalImageIndex + 1) % currentModalProduct.images.length;
+            changeModalImage(currentModalImageIndex);
+        }
+
+        function changeModalImage(index) {
+            const images = modalImageContainer.querySelectorAll('.modal-image');
+            const dots = modalDots.querySelectorAll('.modal-dot');
+
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentModalImageIndex = index;
+        }
+
+        // Cerrar modal
+        modalClose.addEventListener('click', () => {
+            productModal.classList.remove('active');
+        });
+
+        modalCloseBtn.addEventListener('click', () => {
+            productModal.classList.remove('active');
+        });
+
+        productModal.addEventListener('click', (e) => {
+            if (e.target === productModal) {
+                productModal.classList.remove('active');
+            }
+        });
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && productModal.classList.contains('active')) {
+                productModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
