@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeskChamps - Tienda Premium</title>
+    <title>Catálogo - LeskChamps</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilo.css">
 </head>
@@ -29,145 +29,35 @@
         </div>
     </navbar>
 
-    <!-- HERO SECTION - React Style -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="https://images.unsplash.com/photo-1767397194546-c51509f4a715?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjBzdGFkaXVtJTIwbmlnaHQlMjBtYXRjaCUyMGF0bW9zcGhlcmV8ZW58MXx8fHwxNzcxNjg0ODU2fDA&ixlib=rb-4.1.0&q=80&w=1920" alt="Estadio Hero">
+            <img src="https://images.unsplash.com/photo-1767397194546-c51509f4a715?crop=entropy&w=1920" alt="Catálogo">
         </div>
         <div class="hero-content">
-            <h1 class="fade-in">Lesk<span class="highlight">champs</span></h1>
-            <p class="fade-in-delay">El mejor equipamiento deportivo para vos.</p>
+            <h1 class="fade-in">Catálogo <span class="highlight">Completo</span></h1>
+            <p class="fade-in-delay">Todos nuestros productos en un solo lugar.</p>
             <div class="hero-buttons">
-                <a href="boots.html" class="btn-primary">
-                    Ver Botines <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="jerseys.html" class="btn-secondary">
-                    Ver Remeras <i class="fas fa-shopping-bag"></i>
+                <a href="#productos" class="btn-primary">
+                    Ver Productos <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED CATEGORIES - React Style -->
-    <section class="categories-section">
-        <div class="categories-header">
-            <h2>Colecciones <span class="highlight">Destacadas</span></h2>
-            <p>Descubre nuestra selección premium de fútbol y lifestyle.</p>
-        </div>
-        <div class="categories-grid">
-            <a href="boots.html" class="category-card">
-                <img src="https://images.unsplash.com/photo-1768696082133-024fedbdbc3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb290YmFsbCUyMGJvb3RzJTIwc29jY2VyJTIwY2xlYXRzfGVufDF8fHx8MTc3MTYzMzMxNHww&ixlib=rb-4.1.0&q=80&w=600" alt="Botines">
-                <div class="category-card-overlay">
-                    <h3>Botines</h3>
-                    <p>Rendimiento profesional</p>
-                </div>
-            </a>
-            <a href="jerseys.html" class="category-card">
-                <img src="https://images.unsplash.com/photo-1629977008298-926046be0a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjBqZXJzZXklMjBmb290YmFsbCUyMGtpdHxlbnwxfHx8fDE3NzE2ODQ4NTZ8MA&ixlib=rb-4.1.0&q=80&w=600" alt="Remeras">
-                <div class="category-card-overlay">
-                    <h3>Remeras</h3>
-                    <p>Lleva tus colores</p>
-                </div>
-            </a>
-            <a href="perfumes.html" class="category-card">
-                <img src="https://images.unsplash.com/photo-1719175936556-dbd05e415913?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwZXJmdW1lJTIwYm90dGxlfGVufDF8fHx8MTc3MTY3MTIwOXww&ixlib=rb-4.1.0&q=80&w=600" alt="Perfumes">
-                <div class="category-card-overlay">
-                    <h3>Perfumes</h3>
-                    <p>Aroma de victoria</p>
-                </div>
-            </a>
-            <a href="casual.html" class="category-card">
-                <img src="https://images.unsplash.com/photo-1759572095329-1dcf9522762b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXN1YWwlMjB0LXNoaXJ0JTIwZmFzaGlvbnxlbnwxfHx8fDE3NzE2ODQ4NTZ8MA&ixlib=rb-4.1.0&q=80&w=600" alt="Remeras">
-                <div class="category-card-overlay">
-                    <h3>Remeras</h3>
-                    <p>Estilo casual</p>
-                </div>
-            </a>
-        </div>
-    </section>
+    <!-- CATEGORÍAS -->
+    <div class="categories-nav">
+        <button class="category-btn active" data-filter="todos">Todos</button>
+        <button class="category-btn" data-filter="calzado">Botines</button>
+        <button class="category-btn" data-filter="perfumes">Perfumes</button>
+        <button class="category-btn" data-filter="futbol">Remeras Fútbol</button>
+        <button class="category-btn" data-filter="remeras">Remeras</button>
+    </div>
 
-    <!-- NEW ARRIVALS - React Style -->
-    <section class="new-arrivals">
-        <div class="new-arrivals-container">
-            <div class="new-arrivals-header">
-                <div>
-                    <h2>Nuevos <span class="highlight">Ingresos</span></h2>
-                    <p>Los productos más recientes.</p>
-                </div>
-                <a href="catalog.html" class="view-all-link">
-                    Ver Todo <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            
-            <div class="products-grid" id="newArrivalsGrid"></div>
-            
-            <div class="view-all-link-mobile">
-                <a href="catalog.html" class="view-all-btn">
-                    Ver Todo <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SLIDER PRINCIPAL: FÚTBOL, PERFUMES Y REMERAS -->
-    <section class="football-section">
-        <div class="football-content">
-            
-            <!-- Slide 1: Fútbol -->
-            <div class="slide-container active">
-                <div class="ipad-frame">
-                    <div class="ipad-screen">
-                        <img src="gol1.gif" alt="Goles de fútbol">
-                    </div>
-                </div>
-                <div class="football-text">
-                    <h2 class="fade-in-text">El próximo golazo empieza en tus pies.</h2>
-                    <p class="bounce-text">Elegí tus botines</p>
-                </div>
-                <div class="football-products">
-                    <div class="football-product"><img src="nike1.png" alt="Nike 1"></div>
-                    <div class="football-product"><img src="nike2.png" alt="Nike 2"></div>
-                    <div class="football-product"><img src="nike3.png" alt="Nike 3"></div>
-                </div>
-            </div>
-
-            <!-- Slide 2: Perfumes -->
-            <div class="slide-container">
-                <div class="ipad-frame">
-                    <div class="ipad-screen">
-                        <img src="gifperfume.gif" alt="Perfume">
-                    </div>
-                </div>
-                <div class="football-text">
-                    <h2 class="fade-in-text">Fragancia que marca diferencia.</h2>
-                    <p class="bounce-text">Elegí tu aroma</p>
-                </div>
-                <div class="football-products">
-                    <div class="football-product"><img src="perfume1.png" alt="Perfume 1"></div>
-                    <div class="football-product"><img src="perfume2.png" alt="Perfume 2"></div>
-                    <div class="football-product"><img src="perfume3.png" alt="Perfume 3"></div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Remeras de Fútbol -->
-            <div class="slide-container">
-                <div class="ipad-frame">
-                    <div class="ipad-screen">
-                        <img src="4.jpeg" alt="Remera Fútbol">
-                    </div>
-                </div>
-                <div class="football-text">
-                    <h2 class="fade-in-text">Remeras de Fútbol</h2>
-                </div>
-            </div>
-
-            <!-- Navegación -->
-            <div class="slide-nav">
-                <button class="slide-dot active" onclick="goToSlide(0)"></button>
-                <button class="slide-dot" onclick="goToSlide(1)"></button>
-                <button class="slide-dot" onclick="goToSlide(2)"></button>
-            </div>
-        </div>
+    <!-- PRODUCTOS -->
+    <section class="section" id="productos">
+        <h2 class="section-title">Todos los Productos</h2>
+        <div class="products-grid" id="productsGrid"></div>
     </section>
 
     <!-- CARRITO MODAL -->
@@ -211,7 +101,6 @@
         </div>
     </div>
 
-
     <!-- FOOTER -->
     <footer id="contacto">
         <div class="footer-content">
@@ -239,129 +128,9 @@
         </div>
     </footer>
 
+    <!-- Importar productos desde archivo externo -->
+    <script src="products.js"></script>
     <script>
-        // PRODUCTOS CON SLIDERS
-        const products = [
-            // CHAMPIONES - 6000 cada uno
-            { 
-                id: 1, 
-                name: 'Champión Puma', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Calzado premium de alto rendimiento',
-                images: ['puma.png', 'puma1.png', 'puma2.png', 'puma3.png', 'puma4.png']
-            },
-            { 
-                id: 2, 
-                name: 'Champión Adidas', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Zapatilla deportiva de diseño innovador',
-                images: ['adidas.png', 'adidas1.png', 'adidas2.png', 'adidas3.png', 'adidas4.png']
-            },
-            { 
-                id: 3, 
-                name: 'Champión Nike Air', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Calzado con tecnología de punta',
-                images: ['nikeair1.png', 'nikeair2.png', 'nikeair3.png', 'nikeair4.png', 'nikeair5.png']
-            },
-            { 
-                id: 4, 
-                name: 'Nike Phantom', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Diseño premium y confortable',
-                images: ['nikephanton.png', 'nikephanton1.png', 'nikephanton2.png', 'nikephaton3.png', 'nikephaton4.png']
-            },
-            { 
-                id: 5, 
-                name: 'Nike Zoom', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Tecnología de amortiguación avanzada',
-                images: ['nikezoom.png', 'nikezoom1.png', 'nikezoom2.png', 'nikezoom3.png']
-            },
-            { 
-                id: 6, 
-                name: 'Phantom Blancas', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Elegancia en blanco puro',
-                images: ['phantonblancas.png', 'phantonblancas1.png', 'phantonblancas2.png', 'phantonblancas3.png', 'phantonblancas4.png']
-            },
-            { 
-                id: 7, 
-                name: 'Nike Celeste', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Tonalidad celeste fresca',
-                images: ['nikeceleste.png', 'nikeceleste1.png', 'nikeceleste2.png', 'nikeceleste3.png', 'nikeceleste4.png']
-            },
-            { 
-                id: 8, 
-                name: 'Nike Crema', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Tono crema sofisticado',
-                images: ['nikecrema.png', 'nikecrema1.png', 'nikecrema2.png', 'nikecrema3.png', 'nikecrema4.png']
-            },
-            { 
-                id: 9, 
-                name: 'Nike Rosa', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Color rosa vibrante',
-                images: ['nikerosa.png', 'nikerosa1.png', 'nikerosa2.png', 'nikerosa3.png', 'nikerosa4.png']
-            },
-            { 
-                id: 10, 
-                name: 'Puma Negro', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Clásico negro elegante',
-                images: ['pumanegro1.png', 'pumanegro2.png', 'pumanegro3.png', 'pumanegro4.png', 'pumanegro5.png']
-            },
-            { 
-                id: 11, 
-                name: 'Nike 1', 
-                category: 'calzado', 
-                price: 6000, 
-                description: 'Modelo deportivo premium',
-                images: ['nike1.png', 'nike2.png', 'nike3.png', 'nike4.png', 'nike5.png']
-            },
-
-            // PERFUMES - Productos individuales - 1500 cada uno
-            { id: 12, name: 'Perfume 1', category: 'perfumes', price: 1500, description: 'Aroma fresco y sofisticado', images: ['perfume.png'] },
-            { id: 45, name: 'Perfume 2', category: 'perfumes', price: 1500, description: 'Fragancia elegante', images: ['perfume1.png'] },
-            { id: 46, name: 'Perfume 3', category: 'perfumes', price: 1500, description: 'Aroma duradero', images: ['perfume2.png'] },
-            { id: 47, name: 'Perfume 4', category: 'perfumes', price: 1500, description: 'Esencia única', images: ['perfume3.png'] },
-            { id: 48, name: 'Perfume 5', category: 'perfumes', price: 1500, description: 'Fragancia premium', images: ['perfume4.png'] },
-            { id: 49, name: 'Perfume 6', category: 'perfumes', price: 1500, description: 'Aroma exclusivo', images: ['perfume5.png'] },
-            { id: 50, name: 'Perfume 7', category: 'perfumes', price: 1500, description: 'Sensación única', images: ['perfume6.png'] },
-
-            // REMERAS DE FÚTBOL - Productos individuales - 2000 cada una
-            { id: 51, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['4.jpeg'] },
-            { id: 52, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['5.jpeg'] },
-            { id: 53, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['6.jpeg'] },
-            { id: 54, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['7.jpeg'] },
-            { id: 55, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['8.jpeg'] },
-            { id: 56, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['10.jpeg'] },
-            { id: 57, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['11.jpeg'] },
-            { id: 58, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['12.jpeg'] },
-            { id: 59, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['13.jpeg'] },
-            { id: 60, name: 'Remera Fútbol', category: 'futbol', price: 2000, description: 'Jersey oficial de fútbol', images: ['14.jpeg'] },
-
-            // REMERAS - Individuales
-            { id: 14, name: 'Remera', category: 'remeras', price: 850, description: 'Diseño exclusivo', images: ['remera.png'] },
-            { id: 15, name: 'Remera', category: 'remeras', price: 850, description: 'Estilo moderno', images: ['remera2.png'] },
-            { id: 16, name: 'Remera', category: 'remeras', price: 850, description: 'Comfort total', images: ['remera3.png'] },
-            { id: 17, name: 'Remera', category: 'remeras', price: 900, description: 'Calidad superior', images: ['remera4.png'] },
-            { id: 18, name: 'Remera', category: 'remeras', price: 900, description: 'Diseño atemporal', images: ['remera5.png'] },
-            { id: 19, name: 'Remera', category: 'remeras', price: 900, description: 'Elegancia garantizada', images: ['remera6.png'] },
-        ];
-
         let cart = [];
         let currentFilter = 'todos';
 
@@ -374,28 +143,7 @@
         const cartCount = document.getElementById('cartCount');
         const cartTotal = document.getElementById('cartTotal');
         const checkoutBtn = document.getElementById('checkoutBtn');
-
-        // NEW ARRIVALS - Load featured products from different categories
-        function loadNewArrivals() {
-            const newArrivalsGrid = document.getElementById('newArrivalsGrid');
-            if (!newArrivalsGrid) return;
-            
-            // Select one product from each category for variety
-            const categoryProducts = {
-                calzado: products.find(p => p.category === 'calzado'),
-                futbol: products.find(p => p.category === 'futbol'),
-                perfumes: products.find(p => p.category === 'perfumes'),
-                remeras: products.find(p => p.category === 'remeras')
-            };
-            
-            const newProducts = Object.values(categoryProducts).filter(p => p !== undefined);
-            newArrivalsGrid.innerHTML = '';
-            
-            newProducts.forEach(product => {
-                const card = createProductCard(product);
-                newArrivalsGrid.appendChild(card);
-            });
-        }
+        const categoryBtns = document.querySelectorAll('.category-btn');
 
         // Create product card HTML
         function createProductCard(product) {
@@ -421,9 +169,7 @@
                 <div class="product-slider" id="slider-${product.id}" onclick="openProductModal(${product.id})">
                     ${imagesHTML}
                     ${sliderBtnsHTML}
-                    <div class="slider-nav">
-                        ${navDotsHTML}
-                    </div>
+                    <div class="slider-nav">${navDotsHTML}</div>
                     <div class="product-overlay">
                         <span class="product-overlay-price">${product.price}</span>
                         <span class="product-overlay-category">${product.category}</span>
@@ -444,7 +190,6 @@
 
         // CARGAR PRODUCTOS
         function loadProducts(filter = 'todos') {
-            if (!productsGrid) return;
             productsGrid.innerHTML = '';
             const filtered = filter === 'todos' ? products : products.filter(p => p.category === filter);
             
@@ -596,55 +341,51 @@
         function copyImageToClipboard(imagePath) {
             const img = new Image();
             img.crossOrigin = 'anonymous';
-            img.src = imagePath;
-            
             img.onload = function() {
                 const canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0);
-                
                 canvas.toBlob(function(blob) {
-                    try {
-                        const item = new ClipboardItem({ 'image/png': blob });
-                        navigator.clipboard.write([item]).then(function() {
-                            showCopyNotification('Imagen copiada - listo para pegar en WhatsApp');
-                        }, function() {
-                            copyToClipboard(imagePath);
-                            showCopyNotification('Ruta copiada');
-                        });
-                    } catch (e) {
+                    navigator.clipboard.write([
+                        new ClipboardItem({ 'image/png': blob })
+                    ]).then(function() {
+                        showCopyNotification();
+                    }).catch(function(err) {
+                        console.error('Error al copiar imagen:', err);
+                        // Fallback: copiar la URL de la imagen
                         copyToClipboard(imagePath);
-                        showCopyNotification('Ruta copiada');
-                    }
+                    });
                 });
             };
-            
             img.onerror = function() {
+                // Si no se puede cargar la imagen, copiar la URL
                 copyToClipboard(imagePath);
-                showCopyNotification('Ruta copiada');
             };
+            img.src = imagePath;
         }
 
+        // COPIAR TEXTO AL PORTAPAPELES
         function copyToClipboard(text) {
-            navigator.clipboard.writeText(text);
+            navigator.clipboard.writeText(text).then(function() {
+                showCopyNotification();
+            }).catch(function(err) {
+                console.error('Error al copiar:', err);
+            });
         }
 
-        function showCopyNotification(msg) {
+        // MOSTRAR NOTIFICACIÓN DE COPIA
+        function showCopyNotification() {
+            // Eliminar notificación anterior si existe
+            const existingNotification = document.querySelector('.copy-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
             const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: #27ae60;
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 8px;
-                z-index: 10000;
-                animation: slideDown 0.3s ease-out;
-            `;
-            notification.innerHTML = '<i class="fas fa-check"></i> ' + msg;
+            notification.className = 'copy-notification';
+            notification.innerHTML = '<i class="fas fa-check"></i> Imagen copiada al portapapeles';
             document.body.appendChild(notification);
 
             setTimeout(() => {
@@ -719,52 +460,14 @@
         });
 
         // FILTRAR POR CATEGORÍA
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        if (categoryBtns.length > 0) {
-            categoryBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    categoryBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentFilter = btn.dataset.filter;
-                    loadProducts(currentFilter);
-                });
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                loadProducts(currentFilter);
             });
-        }
-
-        // Slider functionality - Fútbol, Perfumes y Remeras
-        let currentSlide = 0;
-        const totalSlides = 3;
-
-        function goToSlide(index) {
-            const slides = document.querySelectorAll('.slide-container');
-            const dots = document.querySelectorAll('.slide-dot');
-            
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                dots[i].classList.remove('active');
-            });
-            
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        function changeSlide(direction) {
-            const newIndex = (currentSlide + direction + totalSlides) % totalSlides;
-            goToSlide(newIndex);
-        }
-
-        // Auto slide cada 20 segundos
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
-        }, 20000);
-
-        // CARGAR PRODUCTOS AL INICIAR
-        if (productsGrid) {
-            loadProducts();
-        }
-        loadNewArrivals();
+        });
 
         // MODAL DE PRODUCTO AMPLIADO
         const productModal = document.getElementById('productModal');
@@ -884,6 +587,9 @@
                 productModal.classList.remove('active');
             }
         });
+
+        // CARGAR PRODUCTOS AL INICIAR
+        loadProducts();
     </script>
 </body>
 </html>
